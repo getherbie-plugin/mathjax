@@ -1,0 +1,8 @@
+{
+    "name": "getherbie/plugin-mathjax",
+    "homepage": "http://www.getherbie.org",
+    "description": "MathJax Plugin for Herbie.",
+    "keywords": ["herbie", "plugin", "mathjax"],
+    "type": "herbie-plugin",
+    "license": "BSD-3-Clause"
+}
