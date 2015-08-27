@@ -6,11 +6,20 @@ use Herbie\Hook;
 class MathjaxPlugin
 {
 
+    /** @var array */
+    protected static $config;
+
     /**
      * Initialize plugin
      */
     public static function install()
     {
+        $defaults = DI::get('Config')->get('plugins.config.mathjax', []);
+        static::$config = array_merge([
+            'cdn_url' => 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML.js',
+            'built_in_js' => true,
+        ], $defaults);
+
         Hook::attach('shortcodeInitialized', ['MathjaxPlugin', 'shortcodeInitialized']);
     }
 
@@ -28,13 +37,26 @@ class MathjaxPlugin
      */
     public static function asciiMathjax($options, $content)
     {
-        static $js;
-        if (is_null($js)) {
-            DI::get('Assets')->addJs("http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full");
-            DI::get('Assets')->addJs("@plugin/mathjax/assets/mathjax.js");
-            $js = true;
+        $page = DI::get('Page');
+
+        if (isset($page->mathjax)) {
+            if ($page->mathjax == false) {
+                return $content;
+            }
         }
-        return '$$$' . $content . '$$$';
+
+        static $addedJS;
+        if (is_null($addedJS)) {
+            if (!empty(static::$config['cdn_url'])) {
+                DI::get('Assets')->addJs(static::$config['cdn_url']);
+            }
+            if (!empty(static::$config['built_in_js'])) {
+                DI::get('Assets')->addJs("@plugin/mathjax/assets/mathjax.js");
+            }
+            $addedJS = true;
+        }
+
+        return '$' . $content . '$';
     }
 
 }

@@ -20,7 +20,24 @@ Danach aktivierst du das Plugin in der Konfigurationsdatei.
 
 ## Konfiguration
 
-Es gibt keine Konfigurations-Einstellungen.
+Unter `plugins.config.mathjax` stehen dir die folgenden Optionen zur Verfügung:
+
+    # MathJax Content Delivery Network (CDN). If false, no url is used.
+    cdn_url: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML.js
+
+    # Use built-in JS of the plugin
+    built_in_js: true
+
+
+## Seiteneigenschaft
+
+Du kannst für einzelne Seiten das Parsen von AscriiMath komplett deaktivieren. Dazu musst du in den Seiteneigenschaften
+den folgenden Wert setzen.
+
+    ---
+    title: Seite ohne MathJax
+    mathjax: false
+    ---
 
 
 ## Anwendung
