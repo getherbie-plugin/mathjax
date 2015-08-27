@@ -31,5 +31,5 @@ unter <http://asciimath.org>.
 
 Nach der Installation des Plugins steht dir der folgende Shortcode zur Verfügung:
 
-[[math:ascii] a^2 + b^2 = c^2 [/math:ascii]]
+[math:ascii] a^2 + b^2 = c^2 [/math:ascii]
 
