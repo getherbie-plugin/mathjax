@@ -31,7 +31,7 @@ Unter `plugins.config.mathjax` stehen dir die folgenden Optionen zur Verfügung:
 
 ## Seiteneigenschaft
 
-Du kannst für einzelne Seiten das Parsen von AscriiMath komplett deaktivieren. Dazu musst du in den Seiteneigenschaften
+Du kannst für einzelne Seiten das Parsen von AsciiMath komplett deaktivieren. Dazu musst du in den Seiteneigenschaften
 den folgenden Wert setzen.
 
     ---
