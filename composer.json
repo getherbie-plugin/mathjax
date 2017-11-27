@@ -1,6 +1,6 @@
 {
     "name": "getherbie/plugin-mathjax",
-    "homepage": "http://www.getherbie.org",
+    "homepage": "https://www.getherbie.org",
     "description": "MathJax Plugin for Herbie.",
     "keywords": ["herbie", "plugin", "mathjax"],
     "type": "herbie-plugin",
